@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header';
+import Input from './Input';
+import Output from './Output';
+import Footer from './Footer';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Wrapper = styled.main`
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.1fr auto 0.05fr;
+`;
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <Wrapper className="App">
+        <Header />
+        <Input />
+        <Output />
+        <Footer />
+      </Wrapper>
+    );
+  }
 }
-
-export default App;
