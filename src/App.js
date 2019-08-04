@@ -13,12 +13,25 @@ const Wrapper = styled.main`
 `;
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      htmlCode: ''
+    };
+  }
+
+  updateMarkdownCode = ({ target }) => {
+    // TODO: convert target.value here into HTML
+    this.setState({ htmlCode: target.value });
+  };
+
   render() {
     return (
       <Wrapper className="App">
         <Header />
-        <Input />
-        <Output />
+        <Input textChanged={this.updateMarkdownCode} />
+        <Output htmlCode={this.state.htmlCode} />
         <Footer />
       </Wrapper>
     );

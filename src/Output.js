@@ -10,7 +10,7 @@ export default class Output extends Component {
   render() {
     return (
       <Section className="outputSection" id="preview">
-        <h1>Output</h1>
+        {this.props.htmlCode}
       </Section>
     );
   }
