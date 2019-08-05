@@ -9,9 +9,11 @@ const Section = styled.section`
 export default class Output extends Component {
   render() {
     return (
-      <Section className="outputSection" id="preview">
-        {this.props.htmlCode}
-      </Section>
+      <Section
+        className="outputSection"
+        id="preview"
+        dangerouslySetInnerHTML={{ __html: this.props.htmlCode }}
+      ></Section>
     );
   }
 }
