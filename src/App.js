@@ -27,19 +27,20 @@ export default class App extends React.Component {
     });
 
     this.state = {
+      markDownCode: defaultMarkdown,
       htmlCode: ''
     };
   }
 
   componentDidMount() {
-    const html = marked(defaultMarkdown);
+    const html = marked(this.state.markDownCode);
     this.setState({ htmlCode: html });
   }
 
   convertToHtml = ({ target }) => {
     const text = target.value;
     const html = marked(text);
-    this.setState({ htmlCode: html });
+    this.setState({ markDownCode: text, htmlCode: html });
   };
 
   render() {
@@ -47,7 +48,7 @@ export default class App extends React.Component {
       <Wrapper className="App">
         <Header />
         <Input
-          defaultMarkdown={defaultMarkdown}
+          defaultMarkdown={this.state.markDownCode}
           textChanged={this.convertToHtml}
         />
         <Output htmlCode={this.state.htmlCode} />

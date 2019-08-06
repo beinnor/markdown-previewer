@@ -17,9 +17,12 @@ export default class Input extends Component {
   render() {
     return (
       <Section className="inputSection">
-        <TextArea id="editor" autoFocus onChange={this.props.textChanged}>
-          {this.props.defaultMarkdown}
-        </TextArea>
+        <TextArea
+          id="editor"
+          autoFocus
+          defaultValue={this.props.defaultMarkdown}
+          onChange={this.props.textChanged}
+        ></TextArea>
       </Section>
     );
   }
