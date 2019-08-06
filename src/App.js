@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from './Header';
+import Toolbar from './Toolbar';
 import Input from './Input';
 import Output from './Output';
 import Footer from './Footer';
@@ -31,6 +32,7 @@ export default class App extends React.Component {
     return (
       <Wrapper className="App">
         <Header />
+        <Toolbar />
         <Input
           defaultMarkdown={this.state.markDownText}
           textChanged={this.convertToHtml}

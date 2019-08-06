@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
-  grid-area: 3 / 1 / 4 / 3;
+  grid-area: 4 / 1 / 5 / 3;
   text-align: center;
   border-top: 1px solid black;
 `;
