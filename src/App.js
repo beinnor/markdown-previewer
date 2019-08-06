@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import marked from 'marked';
 import Header from './Header';
 import Input from './Input';
 import Output from './Output';
@@ -17,30 +16,15 @@ const Wrapper = styled.main`
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    marked.setOptions({
-      pedantic: false,
-      gfm: true,
-      breaks: true,
-      smartLists: true,
-      smartypants: false,
-      xhtml: false
-    });
 
     this.state = {
-      markDownCode: defaultMarkdown,
-      htmlCode: ''
+      markDownText: defaultMarkdown
     };
-  }
-
-  componentDidMount() {
-    const html = marked(this.state.markDownCode);
-    this.setState({ htmlCode: html });
   }
 
   convertToHtml = ({ target }) => {
     const text = target.value;
-    const html = marked(text);
-    this.setState({ markDownCode: text, htmlCode: html });
+    this.setState({ markDownText: text });
   };
 
   render() {
@@ -48,10 +32,10 @@ export default class App extends React.Component {
       <Wrapper className="App">
         <Header />
         <Input
-          defaultMarkdown={this.state.markDownCode}
+          defaultMarkdown={this.state.markDownText}
           textChanged={this.convertToHtml}
         />
-        <Output htmlCode={this.state.htmlCode} />
+        <Output inputText={this.state.markDownText} />
         <Footer />
       </Wrapper>
     );
