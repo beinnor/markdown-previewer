@@ -11,8 +11,13 @@ import defaultMarkdown from './utils/defaultText';
 const Wrapper = styled.main`
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 0.5fr 0.5fr 8.5fr 0.5fr;
+`;
+
+const WorkArea = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
 `;
 
 export default class App extends React.Component {
@@ -20,7 +25,8 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      markDownText: defaultMarkdown
+      markDownText: defaultMarkdown,
+      showCheatSheet: false
     };
   }
 
@@ -33,17 +39,26 @@ export default class App extends React.Component {
     this.setState({ markDownText: '' });
   };
 
+  toggleCheatSheet = () => {
+    this.setState(prevState => ({ showCheatSheet: !prevState.showCheatSheet }));
+  };
+
   render() {
     return (
       <Wrapper className="App">
         <Header />
-        <Toolbar clearInput={this.clearInput} />
-        <Input
-          defaultMarkdown={this.state.markDownText}
-          textChanged={this.convertToHtml}
+        <Toolbar
+          clearInput={this.clearInput}
+          toggleCheatSheet={this.toggleCheatSheet}
         />
-        <Output inputText={this.state.markDownText} />
-        {/*<CheatSheet />*/}
+        <WorkArea>
+          <Input
+            defaultMarkdown={this.state.markDownText}
+            textChanged={this.convertToHtml}
+          />
+          <CheatSheet visible={this.state.showCheatSheet} />
+          <Output inputText={this.state.markDownText} />
+        </WorkArea>
         <Footer />
       </Wrapper>
     );
