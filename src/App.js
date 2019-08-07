@@ -4,6 +4,7 @@ import Header from './Header';
 import Toolbar from './Toolbar';
 import Input from './Input';
 import Output from './Output';
+import CheatSheet from './CheatSheet';
 import Footer from './Footer';
 import defaultMarkdown from './utils/defaultText';
 
@@ -11,7 +12,7 @@ const Wrapper = styled.main`
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.1fr auto 0.05fr;
+  grid-template-rows: 0.5fr 0.5fr 8.5fr 0.5fr;
 `;
 
 export default class App extends React.Component {
@@ -28,16 +29,21 @@ export default class App extends React.Component {
     this.setState({ markDownText: text });
   };
 
+  clearInput = () => {
+    this.setState({ markDownText: '' });
+  };
+
   render() {
     return (
       <Wrapper className="App">
         <Header />
-        <Toolbar />
+        <Toolbar clearInput={this.clearInput} />
         <Input
           defaultMarkdown={this.state.markDownText}
           textChanged={this.convertToHtml}
         />
         <Output inputText={this.state.markDownText} />
+        {/*<CheatSheet />*/}
         <Footer />
       </Wrapper>
     );

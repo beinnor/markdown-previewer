@@ -20,7 +20,7 @@ export default class Input extends Component {
         <TextArea
           id="editor"
           autoFocus
-          defaultValue={this.props.defaultMarkdown}
+          value={this.props.defaultMarkdown}
           onChange={this.props.textChanged}
         ></TextArea>
       </Section>

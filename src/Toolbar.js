@@ -1,4 +1,5 @@
 import React from 'react';
+import ToolbarButton from './ToolbarButton';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -6,12 +7,18 @@ const Wrapper = styled.section`
   grid-area: 2 / 1 / 3 / 3;
   text-align: center;
   border-bottom: 1px solid black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
 `;
 
-export default function Toolbar() {
+export default function Toolbar(props) {
   return (
     <Wrapper>
-      <div>Toolbar</div>
+      <ToolbarButton text="Clear" onClick={props.clearInput} />
+      <ToolbarButton text="CheatSheet" />
+      <ToolbarButton text="Save pdf" />
+      <ToolbarButton text="Save html" />
     </Wrapper>
   );
 }
