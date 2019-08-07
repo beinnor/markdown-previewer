@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from './Header';
-import Toolbar from './Toolbar';
 import Input from './Input';
 import Output from './Output';
 import CheatSheet from './CheatSheet';
@@ -12,7 +11,7 @@ const Wrapper = styled.main`
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 0.5fr 8.5fr 0.5fr;
+  grid-template-rows: 1fr 8.5fr 0.5fr;
 `;
 
 const WorkArea = styled.div`
@@ -46,8 +45,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Wrapper className="App">
-        <Header />
-        <Toolbar
+        <Header
           clearInput={this.clearInput}
           toggleCheatSheet={this.toggleCheatSheet}
         />
