@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://beinnor.github.io/markdown-previewer",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "marked": "^0.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -36,7 +37,6 @@
   "devDependencies": {
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "gh-pages": "^2.1.0",
     "prettier": "^1.18.2"
   }
 }
